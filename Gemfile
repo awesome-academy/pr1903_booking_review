@@ -15,6 +15,21 @@ gem "sass-rails", "~> 5.0"
 gem "sqlite3"
 gem "turbolinks", "~> 5"
 gem "uglifier", ">= 1.3.0"
+gem "mysql2", "~> 0.5.2"
+gem "devise", "~> 4.7"
+gem "jquery-rails", "~> 4.3", ">= 4.3.5"
+
+# Font awesome
+gem "font-awesome-rails"
+
+#Tree
+gem "jstree-rails-4"
+
+#editor
+gem "ckeditor"
+
+#Multi language
+gem "rails-i18n"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
