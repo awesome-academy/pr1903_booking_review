@@ -2,6 +2,12 @@
 <h1>
 
   <%= @book.title %>
-  <%= @book.author %>
+</h1> 
+<h2>
+ <%= @book.author %>
+</h2>
+<% if @book.picture.attached? %>
 
-</h1>
+  <%= image_tag @book.picture.variant(resize: "100x100") %>
+
+<% end %>
