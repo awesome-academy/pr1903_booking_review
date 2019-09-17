@@ -12,5 +12,7 @@ Rails.application.routes.draw do
   resources :relationships
   resources :categories
   resources :reviews
+  get '/signup', to: 'users#new'
+  post '/signup', to: 'users#create'
 end
 
