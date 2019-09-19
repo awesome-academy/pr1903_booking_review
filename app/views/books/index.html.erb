@@ -1,8 +1,26 @@
 <h1>Books</h1>
-<ol class="books">
+<%= form_tag(books_path, method: :get) do %>
+  <%= text_field_tag :term %>
+  <%= submit_tag 'Search' %>
+<% end %>
+<%= will_paginate %>
+<table>
+  <thead>
+    <tr>
+      <th></th>
+    </tr>
+  </thead>
 
-<%= render @books %>
-
-</ol>
-
-
+  <tbody>
+    <tr>
+      <% for book in @books %>
+        <div class='book'>
+            <strong> <%= book.title %> </strong>
+        </div>
+        <%= link_to 'Show', book_path(book) %>
+        <%= link_to 'Edit', edit_book_path(book) %>
+      <% end %>
+     </tr>       
+  </tbody>
+</table>
+<%= will_paginate %>
