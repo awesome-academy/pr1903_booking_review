@@ -1,5 +1,14 @@
-<ol class="books">
-
-<%= render @user %>
-
-</ol>
+<% provide(:title, 'All users') %>
+<h1>All users</h1>
+<%= will_paginate %>
+<ul class="users">
+<% @users.each do |user| %>
+<li>
+<%= gravatar_for user, size: 50 %>
+<%= link_to user.name, user %>
+<%= link_to 'Show', user_path(user) %>
+<%= link_to 'edit', edit_user_path(user) %>
+</li>
+<% end %>
+</ul>
+<%= will_paginate %>
