@@ -1,25 +1,29 @@
 <%= provide(:title, @book.title) %>
-<h1>
+<h3>
 
   <%= @book.title %>
-</h1> 
-<h2>
- <%= @book.author %>
-</h2>
+</h3> 
+ <% @book.author %>
+<%=  @book.conten %>
+
 <% if @book.picture.attached? %>
 
   <%= image_tag @book.picture.variant(resize: "100x100") %>
 
 <% end %>
 
+
 <%= form_for (Review.new) do |f| %>
   <%= f.hidden_field :book_id, value: @book.id %>
   <%= f.text_field :content %>
   <%= f.submit "comment" %>
 <% end %>
+ <br />
 
 <% @reviews.each do |review| %>
-  <%= review.user.name %>
+  <%= link_to review.user.name, review.user %>
   <%= review.content %>
+  <%= link_to 'edit', edit_review_path(review) %>
+<br />
 
 <% end %>

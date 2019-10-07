@@ -1,4 +1,4 @@
-<h1>Books</h1>
+<h4>Book Review</h4>
 <%= form_tag(books_path, method: :get) do %>
   <%= text_field_tag :term %>
   <%= submit_tag 'Search' %>
@@ -15,10 +15,9 @@
     <tr>
       <% for book in @books %>
         <div class='book'>
-            <strong> <%= book.title %> </strong>
+            <strong>   <%= link_to book.title, book %> </strong>
         </div>
         <%= link_to 'Show', book_path(book) %>
-        <%= link_to 'reviews', review_path(book) %>
       <% end %>
      </tr>       
   </tbody>
