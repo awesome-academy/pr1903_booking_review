@@ -1,0 +1,7 @@
+<% provide(:tittle, "Edit review") %>
+<h1> edit comment </h1>
+
+<%= form_for (@review) do |f| %>
+  <%= f.text_field :content %>
+  <%= f.submit "edit" %>
+<% end %>
