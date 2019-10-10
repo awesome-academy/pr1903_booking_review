@@ -3,4 +3,29 @@
   <%= gravatar_for @user %>
   <%= @user.name %>
 </h1> 
+
+<a href="<%= following_user_path(@user) %>">
+  <strong id="following" class="stat">
+    <%= @user.following.count %>
+  </strong>
+  following
+</a>
+<a href="<%= followers_user_path(@user) %>">
+  <strong id="followers" class="stat">
+    <%= @user.followers.count %>
+  </strong>
+  followers
+</a>
+<br/>
+<% unless current_user?(@user) %>
+  <div id="follow_form">
+    <% if current_user.following?(@user) %>
+      <%= render 'unfollow' %>
+    <% else %>
+      <%= render 'follow' %>
+    <% end %>
+  </div>
+<% end %>
+
+
 <%= link_to "logout", logout_path, method: :delete %>
