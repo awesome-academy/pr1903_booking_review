@@ -9,9 +9,17 @@
 <% if @book.picture.attached? %>
 
   <%= image_tag @book.picture.variant(resize: "100x100") %>
-
 <% end %>
 
+<%= @book.likes.count %> 
+<%= 'like' %>
+<br />
+  <% if current_user.likes.find_by(book_id: @book.id) %>
+    <%= link_to "Unlike",like_path(current_user.likes.find_by(book_id: @book.id)),method: :delete %>
+  <% else %>
+    <%= link_to "Like",likes_path(likes: {book_id: @book.id}), method: :post %>
+
+  <% end %>
 
 <%= form_for (Review.new) do |f| %>
   <%= f.hidden_field :book_id, value: @book.id %>

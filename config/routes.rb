@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :books
   resources :likes
   resources :requests
-  resources :favorites
+  resources :favorite_books
   resources :book_statuses
   resources :activities
   resources :relationships

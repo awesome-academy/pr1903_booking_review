@@ -3,6 +3,10 @@
   <%= gravatar_for @user %>
   <%= @user.name %>
 </h1> 
+<%= @user.likes.count%> 
+    <%= link_to "favorite book",likes_path %>
+
+<br/>
 
 <a href="<%= following_user_path(@user) %>">
   <strong id="following" class="stat">
