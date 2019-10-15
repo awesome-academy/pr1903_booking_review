@@ -1,6 +1,7 @@
 class Book < ApplicationRecord
   belongs_to :category
   has_many :reviews
+  has_many :likes
 
   validates :category_id, presence: true
   validates :title, presence: true
