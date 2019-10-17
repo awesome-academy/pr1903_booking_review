@@ -38,6 +38,12 @@ end
 def edit
 end
 
+def liked_books
+  @title = "liked_books"
+  @user = User.find(params[:id])
+  @books = @user.liked_books
+end
+
 def following
   @title = "Following"
   @user = User.find(params[:id])
