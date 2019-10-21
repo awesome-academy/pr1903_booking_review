@@ -1,0 +1,29 @@
+<% provide(:title, @user.name) %>
+<h1>
+  <%= gravatar_for @user %>
+  <%= @user.name %>
+</h1> 
+<a href="<%= liked_books_user_path(@user) %>">
+  <strong id="liked" class="stat">
+    <%= @user.likes.count %>
+  </strong>
+  favorite book
+</a>
+<br/>
+ 
+<a href="<%= following_user_path(@user) %>">
+  <strong id="following" class="stat">
+    <%= @user.following.count %>
+  </strong>
+  following
+</a>
+<a href="<%= followers_user_path(@user) %>">
+  <strong id="followers" class="stat">
+    <%= @user.followers.count %>
+  </strong>
+  followers
+</a>
+<br/>
+<% if current_user.admin? %>
+	<%= link_to "delete", admin_user_path(@user), method: :delete, data: { confirm: "You sure?" } %>
+<% end %>

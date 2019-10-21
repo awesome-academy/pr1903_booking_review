@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :logged_in_user, only: [:create, :show]
-  before_action :find_review, only: [:create, :update, :show, :edit]
-  before_action :current_user?, only: [:update, :edit, :create]
+  before_action :find_review, only: [ :update, :show, :edit]
+  before_action :current_user?, only: [:update, :edit]
 
   def create
     @review = current_user.reviews.new(review_params)
