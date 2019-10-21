@@ -1,0 +1,25 @@
+<h4>all users</h4>
+<%= form_tag(admin_users_path, method: :get) do %>
+  <%= text_field_tag :term %>
+  <%= submit_tag 'Search' %>
+<% end %>
+<%= will_paginate %>
+<table>
+  <thead>
+    <tr>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <% for user in @users %>
+        <div class='book'>
+            <strong>   <%= link_to user.name, admin_user_path(user) %> </strong>
+        </div>
+        <%= link_to 'Show', admin_user_path(user) %>
+      <% end %>
+     </tr>       
+  </tbody>
+</table>
+<%= will_paginate %>

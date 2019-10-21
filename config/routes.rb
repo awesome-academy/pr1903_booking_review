@@ -26,6 +26,8 @@ Rails.application.routes.draw do
   resources :relationships, only: [:create, :destroy]
 
   root "books#index"
-  
+  namespace :admin do
+    resources :users
+  end
 end
 
